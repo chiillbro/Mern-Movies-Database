@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "https://movies-database-seven.vercel.app",
+  base: "https://movies-database-frontend.vercel.app",
   plugins: [react()],
 
   // configuring the development server options using the server property
