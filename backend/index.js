@@ -51,7 +51,7 @@ const __dirname = path.resolve(); // Node.js method that resolves the full path 
 // express.static() is Express middleware to serve static files such as images, CSS files, and JavaScript files.
 
 // configuring Express to serve static files located in the "uploads" directory at the "/uploads" URL path
-app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
+app.use("/uploads", express.static(path.join(__dirname + "/backend/uploads")));
 
 app.listen(port, () => console.log(`Listening to Server : ${port}`));
 
