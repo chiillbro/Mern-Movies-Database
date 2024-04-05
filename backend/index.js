@@ -25,7 +25,7 @@ app.use(
   cors({
     origin: "https://movies-database-frontend.vercel.app",
     methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
+    credentials: false,
   })
 );
 
