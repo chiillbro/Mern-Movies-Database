@@ -21,11 +21,7 @@ connectDB();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://movies-database-frontend.vercel.app",
-  })
-);
+app.use(cors());
 
 // middlewares
 
