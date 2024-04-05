@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "http://localhost:3000",
+  base: "https://movies-database-66m6.onrender.com",
   plugins: [react()],
 
   // configuring the development server options using the server property
