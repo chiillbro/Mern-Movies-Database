@@ -20,10 +20,10 @@ const baseQuery = fetchBaseQuery({
     // Include credentials to allow cookies to be sent
     headers.set("Content-Type", "application/json");
     headers.set("Accept", "application/json");
-    headers.set(
-      "Access-Control-Allow-Origin",
-      "https://movies-database-frontend.vercel.app"
-    );
+    // headers.set(
+    //   "Access-Control-Allow-Origin",
+    //   "https://movies-database-frontend.vercel.app"
+    // );
     return headers;
   },
 });
