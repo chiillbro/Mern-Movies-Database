@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
+import cors from "cors";
 
 // files
 
@@ -19,6 +20,14 @@ dotenv.config(); // to load environment variables from .env file into process.en
 connectDB();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: [""],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // middlewares
 
