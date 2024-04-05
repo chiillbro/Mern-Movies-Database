@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "frontend": "cd frontend && npm run dev",
-    "backend": "nodemon backend/index.js"
+    "frontend": "cd ../frontend && npm run dev",
+    "backend": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
