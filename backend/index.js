@@ -51,6 +51,18 @@ const __dirname = path.resolve(); // Node.js method that resolves the full path 
 // console.log(__dirname);
 
 const location = path.join(__dirname + "/uploads");
+
+app.get("/assets/index-BeKamJ4g.css", (req, res) => {
+  // Set the Content-Type header to indicate that the response is a CSS file
+  res.setHeader("Content-Type", "text/css");
+
+  // Send the CSS file as the response
+
+  res.sendFile(path.join(__dirname, "/uploads"));
+});
+
+// console.log(oi);
+
 // console.log(location);
 // express.static() is Express middleware to serve static files such as images, CSS files, and JavaScript files.
 
