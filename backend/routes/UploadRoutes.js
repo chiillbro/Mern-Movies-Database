@@ -19,6 +19,9 @@ const storage = multer.diskStorage({
     cb(null, `${file.fieldname}-${Date.now()}${extname}`);
   },
 });
+// console.log(cb);
+
+// console.log(storage);
 
 const fileFilter = (req, file, cb) => {
   // Regular expression to match file extensions (e.g., jpeg, jpg, png, webp).

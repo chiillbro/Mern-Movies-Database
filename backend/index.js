@@ -23,9 +23,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://movies-database-frontend.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
+    origin: "http://localhost:5173",
   })
 );
 
@@ -46,17 +44,23 @@ app.use("/api/v1/movies", moviesRoutes);
 
 app.use("/api/v1/upload", uploadRoutes);
 
-// const __dirname = path.resolve(); // Node.js method that resolves the full path of the current module file
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
+const __dirname = path.resolve(); // Node.js method that resolves the full path of the current module file
+
+// console.log(__dirname);
+
+const location = path.join(__dirname + "/uploads");
+// console.log(location);
 // express.static() is Express middleware to serve static files such as images, CSS files, and JavaScript files.
 
 // configuring Express to serve static files located in the "uploads" directory at the "/uploads" URL path
-app.use("/uploads", express.static(path.join(__dirname + "uploads")));
+app.use("/uploads", express.static(location));
 
 app.listen(port, () => console.log(`Listening to Server : ${port}`));
 
 // *********************************User_Register Verification**********************************
-
+// C:\Users\devil\Desktop\moviesDB\backend\uploads\image-1712327789181.jpg
 // // const express = require("express");
 // // const mongoose = require("mongoose");
 // import mongoose from "mongoose";

@@ -1207,7 +1207,7 @@ const CreateMovie = () => {
       });
 
       navigate("/admin/movies-list");
-      window.location.reload();
+      // window.location.reload();
       setMovieData({
         name: "",
         year: 0,
