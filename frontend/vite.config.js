@@ -22,18 +22,44 @@
 //   },
 // });
 
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react";
+
+// // https://vitejs.dev/config/
+// export default defineConfig({
+//   plugins: [react()],
+//   base: "https://mern-movies-database-backend.onrender.com",
+
+//   server: {
+//     proxy: {
+//       "/api/": "https://mern-movies-database-backend.onrender.com",
+//       "/uploads": "https://mern-movies-database-backend.onrender.com",
+//     },
+//   },
+// });
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: "http://localhost:3000",
+  base: "https://mern-movies-database-backend.onrender.com",
 
-  // server: {
-  //   proxy: {
-  //     "/api/": "http://localhost:3000",
-  //     "/uploads": "http://localhost:3000",
-  //   },
-  // },
+  server: {
+    proxy: {
+      // Proxying API requests
+      "/api": {
+        target: "https://mern-movies-database-backend.onrender.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+      // Serving static files (uploads)
+      "/uploads": {
+        target: "https://mern-movies-database-backend.onrender.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/uploads/, ""),
+      },
+    },
+  },
 });

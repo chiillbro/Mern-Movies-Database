@@ -457,6 +457,7 @@ const UpdateMovie = () => {
               {isLoadingGenres ? (
                 <option>Loading genres...</option>
               ) : (
+                genres &&
                 genres.map((genre) => (
                   <option key={genre._id} value={genre._id}>
                     {genre.name}
