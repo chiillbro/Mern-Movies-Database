@@ -23,7 +23,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://mern-movies-database-frontend-ywjlgb3zk.vercel.app",
+    origin: "https://mern-movies-database-frontend-fj5gf8388.vercel.app/",
   })
 );
 
