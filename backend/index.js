@@ -55,6 +55,8 @@ const location = path.join(__dirname, "/frontend/uploads");
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+app.use("/frontend/uploads", express.static(location));
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
@@ -62,7 +64,6 @@ app.get("*", (req, res) => {
 // express.static() is Express middleware to serve static files such as images, CSS files, and JavaScript files.
 
 // configuring Express to serve static files located in the "uploads" directory at the "/uploads" URL path
-app.use("/frontend/uploads", express.static(location));
 
 app.listen(port, () => console.log(`Listening to Server : ${port}`));
 
