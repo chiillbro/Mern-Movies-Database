@@ -15,7 +15,7 @@ const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware), //The apiSlice.middleware contains middleware for handling asynchronous API requests using Redux Toolkit's query features
-  devTools: true, // It enables Redux DevTools for debugging Redux state changes in development mode
+  devTools: false, // It enables Redux DevTools for debugging Redux state changes in development mode
 });
 
 setupListeners(store.dispatch); //This ensures that query lifecycles are managed properly, including caching, background polling, and error handling.

@@ -473,23 +473,26 @@ const UpdateMovie = () => {
               Add Genre
             </button>
           </label>
-          {movieData.genre.length > 0 && (
+          {movieData.genre.length > 0 && genres && (
             <div className="mt-2">
-              {movieData.genre.map((genreId) => (
-                <span
-                  key={genreId}
-                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
-                >
-                  {genres.find((genre) => genre._id === genreId)?.name}
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveGenre(genreId)}
-                    className="ml-2"
+              {movieData.genre.map((genreId) => {
+                const genre = genres.find((genre) => genre._id === genreId);
+                return (
+                  <span
+                    key={genreId}
+                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
                   >
-                    &#10006;
-                  </button>
-                </span>
-              ))}
+                    {genre ? genre.name : "Unknown Genre"}
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveGenre(genreId)}
+                      className="ml-2"
+                    >
+                      &#10006;
+                    </button>
+                  </span>
+                );
+              })}
             </div>
           )}
         </div>

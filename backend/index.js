@@ -2,7 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
-import cors from "cors";
+// import cors from "cors";
 
 // files
 
@@ -21,11 +21,11 @@ connectDB();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://mern-movies-database-frontend-91f6ybl24.vercel.app",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://mern-movies-database-frontend-91f6ybl24.vercel.app",
+//   })
+// );
 
 // middlewares
 
@@ -50,12 +50,19 @@ const __dirname = path.resolve(); // Node.js method that resolves the full path 
 
 // console.log(__dirname);
 
-const location = path.join(__dirname + "/uploads");
+const location = path.join(__dirname, "/frontend/uploads");
+// console.log(location);
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 // express.static() is Express middleware to serve static files such as images, CSS files, and JavaScript files.
 
 // configuring Express to serve static files located in the "uploads" directory at the "/uploads" URL path
-app.use("/uploads", express.static(location));
+app.use("/frontend/uploads", express.static(location));
 
 app.listen(port, () => console.log(`Listening to Server : ${port}`));
 

@@ -10,7 +10,7 @@ const router = express.Router();
 // Defining storage and filename settings for Multer to save uploaded files.
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/");
+    cb(null, "frontend/uploads/");
   },
 
   filename: (req, file, cb) => {
