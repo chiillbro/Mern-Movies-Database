@@ -373,7 +373,7 @@ const UpdateMovie = () => {
       });
 
       navigate("/movies");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.error("Failed to update movie", error);
     }
